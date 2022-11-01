@@ -23,9 +23,6 @@ function Navigation() {
             <LinkContainer to="/chat">
               <Nav.Link>Chat</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link>SignUp</Nav.Link>
-            </LinkContainer>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
