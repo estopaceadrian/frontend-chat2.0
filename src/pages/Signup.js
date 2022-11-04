@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import './Signup.css';
 import bot from '../assets/bot.jpg';
 import { useState } from 'react';
+import { useSignupUserMutation } from '../services/appApi';
 
 function Signup() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [name, setName] = useState();
+  const [signupUser, { isLoading, error }] = useSignupUserMutation();
   //upload states
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
@@ -47,6 +49,13 @@ function Signup() {
     if (!image) return alert('Please upload your profile picture');
     const url = await uploadImage(image);
     console.log(url);
+    //signup user
+
+    signupUser({ name, email, password, picture: url }).then(({ data }) => {
+      if (data) {
+        console.log(data);
+      }
+    });
   }
 
   return (
